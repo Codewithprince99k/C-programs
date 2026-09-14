@@ -1,0 +1,41 @@
+#include <stdio.h>
+int main() {
+    int pin = 1234, enteredPin, balance = 5000, choice, amount;
+    
+    printf("GRD BANK ATM\n");
+    printf("Enter PIN: ");
+    scanf("%d", &enteredPin);
+
+    if(enteredPin == pin) {
+        printf("Welcome Prince!\n");
+        printf("1.Balance 2.Deposit 3.Withdraw 4.Exit\n");
+        printf("Choice: ");
+        scanf("%d", &choice);
+
+        if(choice == 1) {
+            printf("Your Balance is: %d\n", balance);
+        }
+        else if(choice == 2) {
+            printf("Enter amount to Deposit: ");
+            scanf("%d", &amount);
+            balance = balance + amount;
+            printf("New Balance: %d\n", balance);
+        }
+        else if(choice == 3) {
+            printf("Enter amount to Withdraw: ");
+            scanf("%d", &amount);
+            if(amount <= balance) {
+                balance = balance - amount;
+                printf("New Balance: %d\n", balance);
+            } else {
+                printf("Insufficient Balance!\n");
+            }
+        }
+        else {
+            printf("Thank You GRD Bank!\n");
+        }
+    } else {
+        printf("Wrong PIN! Access Denied!\n");
+    }
+    return 0;
+}
